@@ -37,6 +37,7 @@ dependencies:
   dartz: ^0.10.0-nullsafety.2
   # Remote API
   connectivity_plus: 3.0.2
+  graphql_flutter: ^5.1.2
   # Local cache
   shared_preferences: ^2.0.12
   shared_preferences_android: ^2.0.11
@@ -53,6 +54,11 @@ dependencies:
   go_router: ^10.1.0
   #Screen Utils
   flutter_screenutil: ^5.9.0
+  # SVG
+  flutter_svg: ^2.0.6
+  intl: ^0.18.1
+  # PDF viewer
+  syncfusion_flutter_pdfviewer: ^22.2.10
 
 dev_dependencies:
   flutter_test:

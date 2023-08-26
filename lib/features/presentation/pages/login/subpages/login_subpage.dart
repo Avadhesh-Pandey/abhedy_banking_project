@@ -1,7 +1,7 @@
 
 import 'package:abhedy_banking_project/core/constants/color_constants.dart';
 import 'package:abhedy_banking_project/features/presentation/bloc/auth_status/auth_status_bloc.dart';
-import 'package:abhedy_banking_project/features/presentation/pages/home/home_page.dart';
+import 'package:abhedy_banking_project/features/presentation/pages/main/home_page.dart';
 import 'package:flutter/material.dart';
 import 'package:flutter_bloc/flutter_bloc.dart';
 import 'package:go_router/go_router.dart';
@@ -32,7 +32,7 @@ class LoginSubpageState extends State<LoginSubpage> {
         if(state is AuthStatusSetSuccessfully)
           {
             debugPrint("SPLASH : $state");
-            context.go("/${HomePage.id}");
+            context.go("/${MainPage.id}");
           }
         else if(state is ErrorSettingAuthStatus)
           {
@@ -51,6 +51,7 @@ class LoginSubpageState extends State<LoginSubpage> {
         ),
         body: SafeArea(
           child: Column(
+            mainAxisSize: MainAxisSize.min,
             children: [
               Padding(
                 padding: const EdgeInsets.only(right: 24, top: 40),
@@ -83,6 +84,7 @@ class LoginSubpageState extends State<LoginSubpage> {
                 child: Padding(
                   padding: const EdgeInsets.only(right: 24,left: 24,top: 50,bottom: 50),
                   child: Column(
+                    mainAxisSize: MainAxisSize.min,
                     children: [
                       TextFormField(
                         controller: _nameField,
@@ -102,7 +104,7 @@ class LoginSubpageState extends State<LoginSubpage> {
                               RichText(
                                 textAlign: TextAlign.end,
                                 text: const TextSpan(
-                                  text: "Name",
+                                  text: "User name",
                                   style: TextStyle(
                                       fontSize: 16,
                                       color: Colors.black
@@ -183,7 +185,7 @@ class PasswordFieldToggle extends StatefulWidget{
 class PasswordToggleState extends State<PasswordFieldToggle>
 {
   final TextEditingController _passwordField = TextEditingController();
-  bool _passwordVisible=false;
+  bool _passwordVisible=true;
 
   @override
   Widget build(BuildContext context) {

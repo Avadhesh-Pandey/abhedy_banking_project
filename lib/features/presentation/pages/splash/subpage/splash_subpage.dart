@@ -1,6 +1,6 @@
 import 'package:abhedy_banking_project/features/presentation/bloc/auth_status/auth_status_bloc.dart';
-import 'package:abhedy_banking_project/features/presentation/pages/home/home_page.dart';
 import 'package:abhedy_banking_project/features/presentation/pages/login/login_page.dart';
+import 'package:abhedy_banking_project/features/presentation/pages/main/home_page.dart';
 import 'package:flutter/cupertino.dart';
 import 'package:flutter/material.dart';
 import 'package:flutter_bloc/flutter_bloc.dart';
@@ -28,7 +28,7 @@ class SplashSubpageState extends State<SplashSubpage> {
       listener: (context, state) {
         if(state is CustomerIsAuthenticated)
           {
-            context.go("/${HomePage.id}");
+            context.go("/${MainPage.id}");
           }
         else if(state is CustomerIsNotAuthenticated)
           {
