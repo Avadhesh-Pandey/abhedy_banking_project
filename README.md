@@ -1,6 +1,33 @@
-# abhedy_banking_project
+# Banking Project Demo
 
-A new Flutter project.
+This is a demo project using clean arcitecture and GraphQL and Bloc
+
+## Packages
+
+| Purpose           | Heading              |
+| ---------         | -------              |
+| State management  |  Bloc, Stream        |
+| Data              |  Graph QL            |
+| DI                |  Get it              |
+| Routing           |  Go Router           |
+| Responsive UI     |  Screen Utils        |
+| PDF Viewer        |  syncfusion pdfviewer|
+
+## Screens
+
+- Splash
+- Login
+- Main
+  - Home
+  - Accounts
+  - Services
+ 
+## Project Architecture
+
+The project is build using clean architecture. It has 2 main directories
+
+- core
+- features
 
 ## Getting Started
 
