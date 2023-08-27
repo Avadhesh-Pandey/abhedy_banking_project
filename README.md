@@ -1,4 +1,4 @@
-# Banking Project Demo
+# Banking Project Demo (Android, iOS & Web)
 
 This is a demo project using clean architecture and GraphQL and Bloc
 
