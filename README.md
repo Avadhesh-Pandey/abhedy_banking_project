@@ -1,6 +1,6 @@
 # Banking Project Demo
 
-This is a demo project using clean arcitecture and GraphQL and Bloc
+This is a demo project using clean architecture and GraphQL and Bloc
 
 ## Packages
 
@@ -24,7 +24,7 @@ This is a demo project using clean arcitecture and GraphQL and Bloc
  
 ## Project Architecture
 
-The project is build using clean architecture. It has 2 main directories
+The project is built using clean architecture. It has 2 main directories
 
 - core
 - features
