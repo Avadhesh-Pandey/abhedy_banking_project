@@ -3,6 +3,7 @@ import 'package:abhedy_banking_project/features/data/model/statements_model.dart
 import 'package:abhedy_banking_project/features/presentation/pages/statement/subpages/view_pdf_statement.dart';
 import 'package:flutter/cupertino.dart';
 import 'package:flutter/material.dart';
+import 'package:flutter_screenutil/flutter_screenutil.dart';
 import 'package:go_router/go_router.dart';
 
 class StatementListItemWidget extends StatelessWidget {
@@ -18,7 +19,7 @@ class StatementListItemWidget extends StatelessWidget {
         context.go("/${ViewPDFStatement.id}");
       },
       child: Card(
-        margin: const EdgeInsets.only(right: 24, left: 24, bottom: 16),
+        margin: EdgeInsets.only(right: 24.w, left: 24.w, bottom: 16.h),
         child: Padding(
           padding: const EdgeInsets.all(16.0),
           child: Column(
@@ -31,34 +32,34 @@ class StatementListItemWidget extends StatelessWidget {
                 children: [
                   Text(
                     DateTime.parse(fixDateFormatError(statements.date??"")).format(),
-                    style: const TextStyle(
-                      fontSize: 16,
+                    style: TextStyle(
+                      fontSize: 16.sp,
                       color: Colors.black,
                     ),
                   ),
                   Text(
                     statements.amount!.toStringAsFixed(2),
                     style: TextStyle(
-                      fontSize: 16,
+                      fontSize: 16.sp,
                       color: (statements.amount ?? 0) > 0 ? Colors.green : Colors.red,
                     ),
                   ),
                 ],
               ),
-              const Divider(
-                height: 16,
+              Divider(
+                height: 16.h,
               ),
               Text(
                 statements.description ?? "",
                 style:
-                    const TextStyle(fontSize: 14, color: Colors.black,),
+                TextStyle(fontSize: 14.sp, color: Colors.black,),
               ),
-              const SizedBox(
-                height: 8,
+              SizedBox(
+                height: 8.h,
               ),
-              const Center(
+              Center(
                 child: Text("Tab to view details", style: TextStyle(
-                    fontSize: 11, color: Colors.black54, fontWeight: FontWeight.w300)),
+                    fontSize: 11.sp, color: Colors.black54, fontWeight: FontWeight.w300)),
               ),
             ],
           ),

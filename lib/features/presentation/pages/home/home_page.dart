@@ -2,6 +2,7 @@ import 'package:abhedy_banking_project/core/constants/color_constants.dart';
 import 'package:abhedy_banking_project/features/data/datasource/abhedy_queries.dart';
 import 'package:abhedy_banking_project/features/data/model/home_model.dart';
 import 'package:flutter/material.dart';
+import 'package:flutter_screenutil/flutter_screenutil.dart';
 import 'package:flutter_svg/flutter_svg.dart';
 import 'package:graphql_flutter/graphql_flutter.dart';
 
@@ -24,17 +25,11 @@ class HomePage extends StatelessWidget {
         }
 
         var data = HomeDataModel.fromJson(result.data);
-        // List? repositories = result.data?['home']?['name'];
-
-        // if (model == null) {
-        //   return const Text('No repositories');
-        // }
-
         return Align(
           alignment: Alignment.topCenter,
           child: Card(
             color: kPrimaryColour,
-            margin: const EdgeInsets.only(right: 24, left: 24, top: 24, bottom: 24),
+            margin: EdgeInsets.only(right: 24.w, left: 24.w, top: 24.h, bottom: 24.h),
             child: Padding(
               padding: const EdgeInsets.all(16.0),
               child: Column(
@@ -49,22 +44,22 @@ class HomePage extends StatelessWidget {
                         color: Colors.white70,
                         height: 20,
                       ),
-                      const SizedBox(
-                        width: 8,
+                      SizedBox(
+                        width: 8.h,
                       ),
                       Expanded(
                         child: Text(
                           data.home?.name ?? '',
-                          style: const TextStyle(
-                            fontSize: 18,
+                          style: TextStyle(
+                            fontSize: 18.sp,
                             color: Colors.white,
                             fontWeight: FontWeight.w600,
                           ),
                         ),
                       ),
                       Container(
-                          padding: const EdgeInsets.only(right: 10, left: 10),
-                          margin: const EdgeInsets.only(left: 16),
+                          padding:  EdgeInsets.only(right: 10.w, left: 10.w),
+                          margin: EdgeInsets.only(left: 16.w),
                           decoration: BoxDecoration(
                               border: Border.all(
                                 color: Colors.white70,
@@ -73,43 +68,43 @@ class HomePage extends StatelessWidget {
                               borderRadius: const BorderRadius.all(Radius.circular(10))),
                           child: Text(
                             data.home?.currency ?? '',
-                            style: const TextStyle(
-                              fontSize: 16,
+                            style: TextStyle(
+                              fontSize: 16.sp,
                               color: Colors.black,
                             ),
                           ))
                     ],
                   ),
-                  const Divider(
-                    height: 32,
+                  Divider(
+                    height: 32.h,
                   ),
                   RichText(
                     textAlign: TextAlign.start,
                     text: TextSpan(
                       text: "Account no : ",
-                      style: const TextStyle(fontSize: 16, color: Colors.white),
+                      style: TextStyle(fontSize: 16.sp, color: Colors.white),
                       children: [
                         TextSpan(
                           text: data.home?.accountNumber ?? '',
-                          style: const TextStyle(
+                          style: TextStyle(
                             letterSpacing: 5,
-                            fontSize: 14,
+                            fontSize: 14.sp,
                             color: Colors.white70,
                           ),
                         ),
                       ],
                     ),
                   ),
-                  const SizedBox(
-                    height: 16,
+                  SizedBox(
+                    height: 16.h,
                   ),
                   RichText(
                     textAlign: TextAlign.start,
                     text: TextSpan(
                       text:
                           "${data.home?.address?.buildingNumber ?? ''} ${data.home?.address?.streetName ?? ''}",
-                      style: const TextStyle(
-                        fontSize: 12,
+                      style: TextStyle(
+                        fontSize: 12.sp,
                         color: Colors.white70,
                         letterSpacing: 5,
                       ),
@@ -117,37 +112,37 @@ class HomePage extends StatelessWidget {
                         TextSpan(
                           text:
                               "\n${data.home?.address?.townName ?? ''}, ${data.home?.address?.postCode ?? ''}",
-                          style: const TextStyle(
+                          style: TextStyle(
                             letterSpacing: 5,
-                            fontSize: 12,
+                            fontSize: 12.sp,
                             color: Colors.white70,
                           ),
                         ),
                         TextSpan(
                           text: "\n${data.home?.address?.country ?? ''}",
-                          style: const TextStyle(
+                          style: TextStyle(
                             letterSpacing: 5,
-                            fontSize: 12,
+                            fontSize: 12.sp,
                             color: Colors.white70,
                           ),
                         )
                       ],
                     ),
                   ),
-                  const SizedBox(
-                    height: 16,
+                  SizedBox(
+                    height: 16.h,
                   ),
                   RichText(
                     textAlign: TextAlign.start,
                     text: TextSpan(
                       text: "${data.home?.balance.toString()}",
-                      style: const TextStyle(
-                          fontSize: 26, color: Colors.white, fontWeight: FontWeight.bold),
+                      style: TextStyle(
+                          fontSize: 26.sp, color: Colors.white, fontWeight: FontWeight.bold),
                       children: [
                         TextSpan(
                           text: "  ${data.home?.currency ?? ''}",
-                          style: const TextStyle(
-                              fontSize: 10, color: Colors.white70, letterSpacing: 2),
+                          style: TextStyle(
+                              fontSize: 10.sp, color: Colors.white70, letterSpacing: 2),
                         ),
                       ],
                     ),

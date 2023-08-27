@@ -2,6 +2,7 @@ import 'package:abhedy_banking_project/features/data/datasource/abhedy_queries.d
 import 'package:abhedy_banking_project/features/data/model/accounts_model.dart';
 import 'package:abhedy_banking_project/features/presentation/pages/accounts/widgets/accounts_list_item_widget.dart';
 import 'package:flutter/material.dart';
+import 'package:flutter_screenutil/flutter_screenutil.dart';
 import 'package:graphql_flutter/graphql_flutter.dart';
 
 class AccountsPage extends StatelessWidget {
@@ -29,7 +30,7 @@ class AccountsPage extends StatelessWidget {
         }
 
         return ListView.builder(
-            padding: const EdgeInsets.only(top: 16, bottom: 16),
+            padding: EdgeInsets.only(top: 16.h, bottom: 16.h),
             itemCount: data.accounts?.length,
             itemBuilder: (context, index) {
               return AccountsListItemWidget(data.accounts![index]);

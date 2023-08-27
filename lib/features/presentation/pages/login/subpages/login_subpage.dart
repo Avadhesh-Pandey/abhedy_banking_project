@@ -4,25 +4,14 @@ import 'package:abhedy_banking_project/features/presentation/bloc/auth_status/au
 import 'package:abhedy_banking_project/features/presentation/pages/main/home_page.dart';
 import 'package:flutter/material.dart';
 import 'package:flutter_bloc/flutter_bloc.dart';
+import 'package:flutter_screenutil/flutter_screenutil.dart';
 import 'package:go_router/go_router.dart';
 
-class LoginSubpage extends StatefulWidget {
-  const LoginSubpage({super.key});
-
-  @override
-  State<StatefulWidget> createState() => LoginSubpageState();
-}
-
-class LoginSubpageState extends State<LoginSubpage> {
+class LoginSubpage extends StatelessWidget {
+  LoginSubpage({super.key});
 
   final GlobalKey<FormState> _formKey = GlobalKey<FormState>();
   final TextEditingController _nameField = TextEditingController();
-
-  @override
-  void initState() {
-
-    super.initState();
-  }
 
   @override
   Widget build(BuildContext context) {
@@ -42,28 +31,28 @@ class LoginSubpageState extends State<LoginSubpage> {
       child:  Scaffold(
         backgroundColor: Colors.white,
         appBar: AppBar(
-          title: const Text("Login",style: TextStyle(
-            fontSize: 24,
+          title: Text("Login",style: TextStyle(
+            fontSize: 16.sp,
             color: Colors.white,
           ),),
           automaticallyImplyLeading: false,
           backgroundColor: kPrimaryColour,
         ),
         body: SafeArea(
-          child: Column(
-            mainAxisSize: MainAxisSize.min,
+          child: ListView(
+            shrinkWrap: true,
             children: [
               Padding(
-                padding: const EdgeInsets.only(right: 24, top: 40),
+                padding: EdgeInsets.only(right: 24.w, top: 40.w),
                 child: Align(
                   alignment: Alignment.topRight,
                   child: RichText(
-                    text: const TextSpan(
+                    text: TextSpan(
                       children: [
                         TextSpan(
-                          text: "*",
+                          text: "* ",
                           style: TextStyle(
-                            fontSize: 10,
+                            fontSize: 12.sp,
                             color: Colors.pink,
                           ),
                         ),
@@ -71,7 +60,7 @@ class LoginSubpageState extends State<LoginSubpage> {
                           text: "mandatory fields",
                           style: TextStyle(
                             color: Colors.grey,
-                            fontSize: 10.0,
+                            fontSize: 12.sp,
                           ),
                         ),
                       ],
@@ -82,7 +71,7 @@ class LoginSubpageState extends State<LoginSubpage> {
               Form(
                 key: _formKey,
                 child: Padding(
-                  padding: const EdgeInsets.only(right: 24,left: 24,top: 50,bottom: 50),
+                  padding: EdgeInsets.only(right: 24.w,left: 24.w,top: 50.h,bottom: 50.h),
                   child: Column(
                     mainAxisSize: MainAxisSize.min,
                     children: [
@@ -103,10 +92,10 @@ class LoginSubpageState extends State<LoginSubpage> {
                             children: [
                               RichText(
                                 textAlign: TextAlign.end,
-                                text: const TextSpan(
+                                text: TextSpan(
                                   text: "User name",
                                   style: TextStyle(
-                                      fontSize: 16,
+                                      fontSize: 16.sp,
                                       color: Colors.black
                                   ),
                                   children: [
@@ -114,7 +103,7 @@ class LoginSubpageState extends State<LoginSubpage> {
                                       text: ' *',
                                       style: TextStyle(
                                         letterSpacing: 5,
-                                        fontSize: 15,
+                                        fontSize: 15.sp,
                                         color: Colors.red,
                                       ),
                                     )
@@ -141,14 +130,14 @@ class LoginSubpageState extends State<LoginSubpage> {
                 ),
               ),
               Padding(
-                padding: const EdgeInsets.only(top: 50, bottom: 8,right: 24,left: 24),
+                padding:  EdgeInsets.only(top: 50.h, bottom: 8.h,right: 24.w,left: 24.w),
                 child: ElevatedButton(
                   style: ElevatedButton.styleFrom(
                     shape: RoundedRectangleBorder(
-                      borderRadius: BorderRadius.circular(8.0),
+                      borderRadius: BorderRadius.circular(8.0.r),
                     ),
                     backgroundColor: kPrimaryColour,
-                    minimumSize: const Size.fromHeight(48),
+                    minimumSize: Size.fromHeight(48.h),
                   ),
                   onPressed: () {
                     if (_formKey.currentState!.validate())
@@ -156,11 +145,11 @@ class LoginSubpageState extends State<LoginSubpage> {
                         BlocProvider.of<AuthStatusBloc>(context).add(SetCustomerAuthStatusEvent(_nameField.text.trim()));
                       }
                   },
-                  child: const Text(
+                  child: Text(
                     "Login",
                     style: TextStyle(
                       color: Colors.white,
-                      fontSize: 18,
+                      fontSize: 18.sp,
                       fontWeight: FontWeight.w600,
                     ),
                     textAlign: TextAlign.left,
@@ -206,10 +195,10 @@ class PasswordToggleState extends State<PasswordFieldToggle>
           children: [
             RichText(
               textAlign: TextAlign.end,
-              text: const TextSpan(
+              text: TextSpan(
                 text: "Password",
                 style: TextStyle(
-                    fontSize: 16,
+                    fontSize: 16.sp,
                     color: Colors.black
                 ),
                 children: [
@@ -217,7 +206,7 @@ class PasswordToggleState extends State<PasswordFieldToggle>
                     text: ' *',
                     style: TextStyle(
                       letterSpacing: 5,
-                      fontSize: 15,
+                      fontSize: 15.sp,
                       color: Colors.red,
                     ),
                   )

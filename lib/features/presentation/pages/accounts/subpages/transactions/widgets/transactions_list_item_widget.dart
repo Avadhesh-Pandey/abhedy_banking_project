@@ -2,6 +2,7 @@ import 'package:abhedy_banking_project/core/utils/extensions/date_time_ext.dart'
 import 'package:abhedy_banking_project/features/data/model/transactions_model.dart';
 import 'package:flutter/cupertino.dart';
 import 'package:flutter/material.dart';
+import 'package:flutter_screenutil/flutter_screenutil.dart';
 
 class TransactionsListItemWidget extends StatelessWidget {
   final Transactions transactions;
@@ -11,7 +12,7 @@ class TransactionsListItemWidget extends StatelessWidget {
   @override
   Widget build(BuildContext context) {
     return Card(
-      margin: const EdgeInsets.only(right: 24, left: 24, bottom: 16),
+      margin: EdgeInsets.only(right: 24.w, left: 24.w, bottom: 16.h),
       child: Padding(
         padding: const EdgeInsets.all(16.0),
         child: Column(
@@ -24,51 +25,51 @@ class TransactionsListItemWidget extends StatelessWidget {
               children: [
                 Text(
                   DateTime.parse(transactions.date ?? "").format(),
-                  style: const TextStyle(
-                    fontSize: 16,
+                  style: TextStyle(
+                    fontSize: 16.sp,
                     color: Colors.black,
                   ),
                 ),
                 Text(
                   transactions.amount!.toStringAsFixed(2),
                   style: TextStyle(
-                    fontSize: 16,
+                    fontSize: 16.sp,
                     color: (transactions.amount ?? 0) > 0 ? Colors.green : Colors.red,
                   ),
                 ),
               ],
             ),
-            const Divider(
-              height: 16,
+            Divider(
+              height: 16.h,
             ),
             Text(
               transactions.description ?? "",
               style:
-                  const TextStyle(fontSize: 16, color: Colors.black, fontWeight: FontWeight.w600),
+              TextStyle(fontSize: 16.sp, color: Colors.black, fontWeight: FontWeight.w600),
             ),
             RichText(
               textAlign: TextAlign.start,
               text: TextSpan(
                 text: transactions.fromAccount ?? '',
-                style: const TextStyle(
+                style:  TextStyle(
                   letterSpacing: 2,
-                  fontSize: 14,
+                  fontSize: 14.sp,
                   color: Colors.black54,
                 ),
                 children: [
-                  const TextSpan(
+                   TextSpan(
                     text: " to ",
                     style: TextStyle(
-                      fontSize: 12,
+                      fontSize: 12.sp,
                       color: Colors.black,
                       fontWeight: FontWeight.bold
                     ),
                   ),
                   TextSpan(
                     text: transactions.toAccount ?? '',
-                    style: const TextStyle(
+                    style:  TextStyle(
                       letterSpacing: 2,
-                      fontSize: 14,
+                      fontSize: 14.sp,
                       color: Colors.black54,
                     ),
                   ),

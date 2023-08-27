@@ -4,6 +4,7 @@ import 'package:abhedy_banking_project/features/presentation/pages/accounts/subp
 import 'package:abhedy_banking_project/features/presentation/pages/home/home_page.dart';
 import 'package:abhedy_banking_project/features/presentation/pages/main/home_page.dart';
 import 'package:flutter/material.dart';
+import 'package:flutter_screenutil/flutter_screenutil.dart';
 import 'package:go_router/go_router.dart';
 
 class TransactionsPage extends StatelessWidget {
@@ -25,8 +26,8 @@ class TransactionsPage extends StatelessWidget {
       child: Scaffold(
         backgroundColor: Colors.white,
         appBar: AppBar(
-          title: const Text("Transactions",style: TextStyle(
-            fontSize: 24,
+          title: Text("Transactions",style: TextStyle(
+            fontSize: 16.sp,
             color: Colors.white,
           ),),
           backgroundColor: kPrimaryColour,
@@ -43,23 +44,23 @@ class TransactionsPage extends StatelessWidget {
                 width: MediaQuery.of(context).size.width,
                 color: kPrimaryColour,
                 child: Card(
-                  margin: const EdgeInsets.only(top: 10,bottom: 10,right: 10,left: 10),
+                  margin: EdgeInsets.only(top: 10.h,bottom: 10.h,right: 10.w,left: 10.w),
                   color: Colors.white60,
                   child: Column(
                     mainAxisSize: MainAxisSize.min,
                     children: [
                       Text(
                         "\$ ${accounts.balance.toString()}",
-                        style: const TextStyle(
-                          fontSize: 18,
+                        style: TextStyle(
+                          fontSize: 18.sp,
                           color: Colors.black,
                           fontWeight: FontWeight.w600,
                         ),
                       ),
                       Text(
                         "Account no : ${accounts.accountNumber??"-"}",
-                        style: const TextStyle(
-                          fontSize: 16,
+                        style: TextStyle(
+                          fontSize: 16.sp,
                           color: Colors.black,
                         ),
                       ),
@@ -73,12 +74,12 @@ class TransactionsPage extends StatelessWidget {
                   appBar: AppBar(
                     toolbarHeight: 0,
                     automaticallyImplyLeading: false,
-                    bottom: const TabBar(
-                      tabs: [
+                    bottom:  TabBar(
+                      tabs: const [
                         Tab(text: "Statement"),
                         Tab(text: "Details",),
                       ],
-                      labelStyle: TextStyle(fontWeight: FontWeight.w600,fontSize: 16),
+                      labelStyle: TextStyle(fontWeight: FontWeight.w600,fontSize: 16.sp),
                     ),
                   ),
                   body: const TabBarView(

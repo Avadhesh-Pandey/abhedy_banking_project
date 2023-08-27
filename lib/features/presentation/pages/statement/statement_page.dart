@@ -4,6 +4,7 @@ import 'package:abhedy_banking_project/core/constants/color_constants.dart';
 import 'package:abhedy_banking_project/features/presentation/pages/main/home_page.dart';
 import 'package:abhedy_banking_project/features/presentation/pages/statement/subpages/statement_list_page.dart';
 import 'package:flutter/material.dart';
+import 'package:flutter_screenutil/flutter_screenutil.dart';
 import 'package:go_router/go_router.dart';
 
 StreamController financialYearChanged = StreamController<int>.broadcast();
@@ -34,8 +35,8 @@ class _StatementPageState extends State<StatementPage> {
       child: Scaffold(
         backgroundColor: Colors.white,
         appBar: AppBar(
-          title: const Text("Financial Statement",style: TextStyle(
-            fontSize: 24,
+          title: Text("Financial Statement",style: TextStyle(
+            fontSize: 16.sp,
             color: Colors.white,
           ),),
           backgroundColor: kPrimaryColour,
@@ -50,20 +51,20 @@ class _StatementPageState extends State<StatementPage> {
             children: [
               Container(
                 alignment: Alignment.topCenter,
-                padding: const EdgeInsets.only(top: 10,bottom: 10),
+                padding: EdgeInsets.only(top: 10.h,bottom: 10.h),
                 child: ElevatedButton.icon(
                   onPressed: ()
                   {
                     showYearPicker(context);
                   },
-                  style: ElevatedButton.styleFrom(textStyle: const TextStyle(fontSize: 20),maximumSize: Size(200, 100)),
+                  style: ElevatedButton.styleFrom(textStyle: TextStyle(fontSize: 18.sp),maximumSize: Size(200.w, 100.h)),
                   icon: const Icon(Icons.arrow_drop_down_outlined),
                   label: StreamBuilder(
                       stream: financialYearChanged.stream,
                       initialData: _selectedDate.year.toString(),
                       builder: (BuildContext context, AsyncSnapshot snapshot){
                         print("snapshot : ${snapshot.data}");
-                        return Text("${snapshot.data}",style: const TextStyle(color: Colors.black,fontWeight: FontWeight.bold,fontSize: 20),);
+                        return Text("${snapshot.data}",style: TextStyle(color: Colors.black,fontWeight: FontWeight.bold,fontSize: 18.sp),);
                       }
                   )
 
@@ -85,8 +86,8 @@ class _StatementPageState extends State<StatementPage> {
         return AlertDialog(
           title: const Text("Select Year"),
           content: SizedBox( // Need to add size constraint.
-            width: 300,
-            height: 300,
+            width: 300.w,
+            height: 300.h,
             child: YearPicker(
               firstDate: DateTime(DateTime.now().year - 4, 1),
               lastDate: DateTime(DateTime.now().year, 1),

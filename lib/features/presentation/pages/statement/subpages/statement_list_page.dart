@@ -3,6 +3,7 @@ import 'package:abhedy_banking_project/features/data/model/statements_model.dart
 import 'package:abhedy_banking_project/features/presentation/pages/statement/statement_page.dart';
 import 'package:abhedy_banking_project/features/presentation/pages/statement/widgets/statement_list_item_widget.dart';
 import 'package:flutter/material.dart';
+import 'package:flutter_screenutil/flutter_screenutil.dart';
 import 'package:graphql_flutter/graphql_flutter.dart';
 
 class StatementListPage extends StatelessWidget {
@@ -45,7 +46,7 @@ class StatementListPage extends StatelessWidget {
               if(snapshot.hasData)
                 {
                   return ListView.builder(
-                    padding: const EdgeInsets.only(top: 16,bottom: 16),
+                    padding: EdgeInsets.only(top: 16.h,bottom: 16.h),
                       itemCount: statementMap[snapshot.data]!.length,
                       itemBuilder: (context, index) {
                         return StatementListItemWidget(statementMap[snapshot.data]![index]);

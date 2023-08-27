@@ -2,6 +2,7 @@ import 'package:abhedy_banking_project/core/constants/color_constants.dart';
 import 'package:abhedy_banking_project/features/data/model/accounts_model.dart';
 import 'package:abhedy_banking_project/features/presentation/pages/accounts/subpages/transactions_page.dart';
 import 'package:flutter/material.dart';
+import 'package:flutter_screenutil/flutter_screenutil.dart';
 import 'package:flutter_svg/flutter_svg.dart';
 import 'package:go_router/go_router.dart';
 
@@ -18,7 +19,7 @@ class AccountsListItemWidget extends StatelessWidget {
       },
       child: Card(
         color: kPrimaryColour,
-        margin: const EdgeInsets.only(right: 24, left: 24, bottom: 16),
+        margin: EdgeInsets.only(right: 24.w, left: 24.w, bottom: 16.h),
         child: Padding(
           padding: const EdgeInsets.all(16.0),
           child: Column(
@@ -31,53 +32,51 @@ class AccountsListItemWidget extends StatelessWidget {
             SvgPicture.asset(
             'assets/ic_user.svg',
             color: Colors.white70,
-            height: 18,
-          ),
-          const SizedBox(
-            width: 8,
+            height: 18.h,
+          ), SizedBox(
+            width: 8.h,
           ),
           Expanded(
             child: Text(
               account.accountHolder ?? '',
-              style: const TextStyle(
-                fontSize: 18,
+              style: TextStyle(
+                fontSize: 16.sp,
                 color: Colors.white,
                 fontWeight: FontWeight.w600,
               ),
             ),
           ),
-          Text("\$ ${account.balance}", style: const TextStyle(
-              fontSize: 20, color: Colors.white, fontWeight: FontWeight.bold)),
+          Text("\$ ${account.balance}", style: TextStyle(
+              fontSize: 18.sp, color: Colors.white, fontWeight: FontWeight.bold)),
             ],
-          ),
-          const Divider(
-            height: 16,
+          ), Divider(
+            height: 16.h,
           ),
           RichText(
             textAlign: TextAlign.start,
             text: TextSpan(
               text: "Account no : ",
-              style: const TextStyle(fontSize: 16, color: Colors.white),
+              style: TextStyle(fontSize: 16.sp, color: Colors.white),
               children: [
                 TextSpan(
                   text: account.accountNumber ?? '',
-                  style: const TextStyle(
+                  style: TextStyle(
                     letterSpacing: 5,
-                    fontSize: 14,
+                    fontSize: 14.sp,
                     color: Colors.white70,
                   ),
                 ),
               ],
             ),
           ),
-              const SizedBox(
-                height: 8,
+              SizedBox(
+                height: 8.h,
               ),
           Align(
             alignment: Alignment.bottomRight,
             child: Container(
-              padding: const EdgeInsets.only(right: 10, left: 10),
-              margin: const EdgeInsets.only(left: 16),
+              padding:  EdgeInsets.only(right: 10.w, left: 10.w),
+              margin:  EdgeInsets.only(left: 16.w),
               decoration: BoxDecoration(
                   border: Border.all(
                     color: Colors.white70,
@@ -86,17 +85,17 @@ class AccountsListItemWidget extends StatelessWidget {
                   borderRadius: const BorderRadius.all(Radius.circular(10))),
               child: Text(
                 account.accountType ?? '',
-                style: const TextStyle(
-                  fontSize: 10,
+                style: TextStyle(
+                  fontSize: 10.sp,
                   color: Colors.black,
                 ),
               )),),
-              const SizedBox(
-                height: 8,
+              SizedBox(
+                height: 8.h,
               ),
-              const Center(
+              Center(
                 child: Text("Tab to view details", style: TextStyle(
-                    fontSize: 11, color: Colors.white70, fontWeight: FontWeight.w300)),
+                    fontSize: 11.sp, color: Colors.white70, fontWeight: FontWeight.w300)),
               ),
 
         ],

@@ -6,6 +6,7 @@ import 'package:abhedy_banking_project/features/presentation/pages/main/subpages
 import 'package:abhedy_banking_project/features/presentation/pages/services/services_page.dart';
 import 'package:flutter/material.dart';
 import 'package:flutter_bloc/flutter_bloc.dart';
+import 'package:flutter_screenutil/flutter_screenutil.dart';
 import 'package:flutter_svg/flutter_svg.dart';
 
 class MainSubpage extends StatefulWidget {
@@ -47,19 +48,19 @@ class MainSubpageState extends State<MainSubpage> {
                   RichText(
                     text: TextSpan(
                       children: [
-                        const TextSpan(
+                        TextSpan(
                           text: "Welcome back,  ",
                           style: TextStyle(
-                            fontSize: 16,
+                            fontSize: 16.sp,
                             color: Colors.white,
                           ),
                         ),
                         TextSpan(
                           text: state.customersName,
-                          style: const TextStyle(
+                          style: TextStyle(
                             color: Colors.white,
                             fontWeight: FontWeight.w600,
-                            fontSize: 16,
+                            fontSize: 16.sp,
                           ),
                         ),
                       ],
@@ -80,18 +81,33 @@ class MainSubpageState extends State<MainSubpage> {
           BottomNavigationBarItem(
             icon: SvgPicture.asset(
               'assets/ic_home.svg',
+                colorFilter: const ColorFilter.mode(Colors.grey, BlendMode.srcIn)
+            ),
+            activeIcon: SvgPicture.asset(
+                'assets/ic_home.svg',
+                colorFilter: const ColorFilter.mode(kPrimaryColour, BlendMode.srcIn)
             ),
             label: 'Home',
           ),
           BottomNavigationBarItem(
             icon: SvgPicture.asset(
               'assets/ic_account.svg',
+                colorFilter: const ColorFilter.mode(Colors.grey, BlendMode.srcIn)
+            ),
+            activeIcon: SvgPicture.asset(
+                'assets/ic_account.svg',
+                colorFilter: const ColorFilter.mode(kPrimaryColour, BlendMode.srcIn)
             ),
             label: 'Accounts',
           ),
           BottomNavigationBarItem(
             icon: SvgPicture.asset(
               'assets/ic_services.svg',
+                colorFilter: const ColorFilter.mode(Colors.grey, BlendMode.srcIn)
+            ),
+            activeIcon: SvgPicture.asset(
+                'assets/ic_services.svg',
+                colorFilter: const ColorFilter.mode(kPrimaryColour, BlendMode.srcIn)
             ),
             label: 'Services',
           ),

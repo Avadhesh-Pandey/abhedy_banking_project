@@ -5,16 +5,16 @@ import 'package:abhedy_banking_project/features/data/datasource/abhedy_queries.d
 import 'package:abhedy_banking_project/features/data/model/contacts_model.dart';
 import 'package:abhedy_banking_project/features/presentation/pages/main/home_page.dart';
 import 'package:flutter/material.dart';
+import 'package:flutter_screenutil/flutter_screenutil.dart';
 import 'package:go_router/go_router.dart';
 import 'package:graphql_flutter/graphql_flutter.dart';
 
 class ContactsPage extends StatelessWidget {
   const ContactsPage({super.key});
 
-  static const id="contacts";
+  static const id = "contacts";
 
-  Future<bool> goBack(BuildContext context)
-  {
+  Future<bool> goBack(BuildContext context) {
     // GoRouter.of(context).pop();
     context.go("/${MainPage.id}");
     return Future.value(false);
@@ -27,15 +27,21 @@ class ContactsPage extends StatelessWidget {
       child: Scaffold(
         backgroundColor: Colors.white,
         appBar: AppBar(
-          title: const Text("Contacts us",style: TextStyle(
-            fontSize: 24,
-            color: Colors.white,
-          ),),
+          title: Text(
+            "Contacts us",
+            style: TextStyle(
+              fontSize: 16.sp,
+              color: Colors.white,
+            ),
+          ),
           backgroundColor: kPrimaryColour,
           iconTheme: const IconThemeData(color: Colors.white),
-          leading: IconButton(icon: const Icon(Icons.arrow_back),onPressed: (){
-            goBack(context);
-          },),
+          leading: IconButton(
+            icon: const Icon(Icons.arrow_back),
+            onPressed: () {
+              goBack(context);
+            },
+          ),
           automaticallyImplyLeading: false,
         ),
         body: SafeArea(
@@ -49,9 +55,18 @@ class ContactsPage extends StatelessWidget {
                   padding: const EdgeInsets.all(8.0),
                   child: Column(
                     children: [
-                      Text(result.exception!.graphqlErrors.first.message,style: const TextStyle(fontSize: 16,color: Colors.red),),
-                      Text(result.exception!.graphqlErrors.first.extensions!["code"].toString(),style: const TextStyle(fontSize: 12,color: Colors.black),),
-                      Text(result.exception!.graphqlErrors.first.extensions!["stacktrace"].toString(),style: const TextStyle(fontSize: 12,color: Colors.black87),),
+                      Text(
+                        result.exception!.graphqlErrors.first.message,
+                        style: TextStyle(fontSize: 16.sp, color: Colors.red),
+                      ),
+                      Text(
+                        result.exception!.graphqlErrors.first.extensions!["code"].toString(),
+                        style:  TextStyle(fontSize: 12.sp, color: Colors.black),
+                      ),
+                      Text(
+                        result.exception!.graphqlErrors.first.extensions!["stacktrace"].toString(),
+                        style: TextStyle(fontSize: 12.sp, color: Colors.black87),
+                      ),
                     ],
                   ),
                 );
@@ -63,8 +78,7 @@ class ContactsPage extends StatelessWidget {
 
               var data = ContactsModel.fromJson(result.data);
 
-              if(data.errors==null || data.errors!.isEmpty)
-              {
+              if (data.errors == null || data.errors!.isEmpty) {
                 return const Text('No Record(s) Found');
               }
 

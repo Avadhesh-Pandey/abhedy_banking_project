@@ -1,6 +1,7 @@
 import 'package:abhedy_banking_project/core/constants/color_constants.dart';
 import 'package:abhedy_banking_project/features/presentation/pages/main/home_page.dart';
 import 'package:flutter/material.dart';
+import 'package:flutter_screenutil/flutter_screenutil.dart';
 import 'package:go_router/go_router.dart';
 import 'package:syncfusion_flutter_pdfviewer/pdfviewer.dart';
 
@@ -15,8 +16,8 @@ class ViewPDFStatement extends StatelessWidget{
       child: Scaffold(
           backgroundColor: Colors.white,
           appBar: AppBar(
-            title: const Text("PDF Statement",style: TextStyle(
-              fontSize: 24,
+            title: Text("PDF Statement",style: TextStyle(
+              fontSize: 16.sp,
               color: Colors.white,
             ),),
             backgroundColor: kPrimaryColour,
