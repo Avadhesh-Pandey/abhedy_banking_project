@@ -4,14 +4,14 @@ This is a demo project using clean arcitecture and GraphQL and Bloc
 
 ## Packages
 
-| Purpose           | Heading              |
-| ---------         | -------              |
-| State management  |  Bloc, Stream        |
-| Data              |  Graph QL            |
-| DI                |  Get it              |
-| Routing           |  Go Router           |
-| Responsive UI     |  Screen Utils        |
-| PDF Viewer        |  syncfusion pdfviewer|
+| Purpose           | Heading               |
+| ---------         | -------               |
+| State management  |  Bloc, Stream         |
+| Data              |  Graph QL             |
+| DI                |  Get it               |
+| Routing           |  Go Router            |
+| Responsive UI     |  Screen Utils         |
+| PDF Viewer        |  Syncfusion PDF Viewer|
 
 ## Screens
 
